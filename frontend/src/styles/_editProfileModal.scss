@@ -1,0 +1,54 @@
+.edit-profile-modal-wrapper {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: $modal-bg-gray;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+
+  .edit-profile-modal {
+    width: 500px;
+    background-color: white;
+    border-radius: $rounded-md;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid $lgray;
+      div {
+        display: flex;
+        align-items: center;
+        button {
+          margin-right: 30px;
+          color: $dblue;
+          i {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    &-save-btn {
+      background-color: $dblue;
+      color: white;
+      padding: 5px 15px;
+    }
+    form {
+      padding: 10px;
+      input,
+      textarea {
+        width: 100%;
+        border: 1px solid $lgray;
+        display: block;
+        padding: 10px;
+        border-radius: $rounded-sm;
+        margin-bottom: 10px;
+        resize: none;
+      }
+    }
+  }
+}

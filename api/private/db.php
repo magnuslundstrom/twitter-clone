@@ -7,8 +7,8 @@ class Database
     private $user = DB_USER;
     private $pass = DB_PASS;
     private $dbname = DB_NAME;
-    private $db;
-    private $statement;
+    public $db;
+    public $statement;
     public function __construct()
     {
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname . '; charset=utf8mb4';
@@ -33,15 +33,13 @@ class Database
 
     public function bindAndExecute($values = [])
     {
-        try {
-            for ($i = 0; $i < count($values); $i += 2) {
-                $this->statement->bindValue($values[$i], $values[$i + 1]);
-            }
-            $this->statement->execute();
-            return $this;
-        } catch (Exception $ex) {
-            echo $ex;
+
+        for ($i = 0; $i < count($values); $i += 2) {
+            $this->statement->bindValue($values[$i], $values[$i + 1]);
         }
+        $this->statement->execute();
+        return $this;
+
     }
 
     public function getAll()

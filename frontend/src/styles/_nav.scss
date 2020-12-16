@@ -1,0 +1,90 @@
+@import './mixins.scss';
+
+#nav-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  border-right: 1px solid $lgray;
+  position: relative;
+
+  #nav {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    padding-right: 30px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    a {
+      font-size: 1.25rem;
+      color: black;
+      margin-bottom: 20px;
+      display: block;
+      padding: 15px;
+      align-self: flex-start;
+
+      &:hover {
+        background-color: $lgray;
+        border-radius: $rounded-xl;
+        color: $dblue;
+      }
+
+      i {
+        margin-right: 20px;
+        width: 30px;
+        display: inline-flex;
+        justify-content: center;
+      }
+    }
+
+    #nav-menu {
+      margin-top: -40px;
+      display: flex;
+      flex-direction: column;
+      height: inherit;
+      justify-content: space-between;
+      position: fixed;
+
+      button {
+        @include baseBtn();
+        padding: 15px 0px;
+        width: 100%;
+        border-radius: $rounded-xl;
+        font-size: 0.9rem;
+      }
+      #nav-options {
+        margin-bottom: 10px;
+        button {
+          border: 0px;
+          background: $white;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          color: $dblue;
+
+          img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+          i {
+            justify-self: flex-end;
+          }
+          .first-container {
+            display: flex;
+            align-items: center;
+
+            div {
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

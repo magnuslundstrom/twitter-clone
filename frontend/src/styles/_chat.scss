@@ -1,0 +1,44 @@
+.chat-page .right {
+  padding: 0px;
+  border-right: 1px solid $lgray;
+}
+
+.chat {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  &-header {
+    border-bottom: 1px solid $lgray;
+    padding: 11px;
+  }
+
+  &-room {
+    padding: 10px;
+    height: 85vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-form {
+    margin-top: -15px;
+    border-top: 1px solid $lgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    input {
+      width: 100%;
+      background-color: $lgray;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    &-button {
+      border: 1px solid $dblue;
+      padding: 5px 10px;
+      margin-left: 10px;
+      color: $dblue;
+    }
+  }
+}

@@ -1,0 +1,85 @@
+.followers-list {
+  .no-users-found {
+    margin: 20px;
+  }
+
+  &-relations {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+
+    a {
+      display: block;
+      width: 100%;
+      text-align: center;
+      color: $dgray;
+      padding-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .active {
+      color: $dblue;
+      border-bottom: 1px solid $dblue;
+    }
+  }
+  &-top {
+    border-bottom: 2px solid $lgray;
+
+    &-head {
+      display: flex;
+      padding: 20px;
+
+      button {
+        font-size: 18px;
+        i {
+          color: $dblue;
+        }
+      }
+    }
+
+    h1 {
+      font-size: 1rem;
+
+      padding-left: 40px;
+    }
+  }
+
+  &-user-box {
+    display: flex;
+    padding: 10px;
+
+    border-bottom: 1px solid $lgray;
+    .profile-img {
+      height: 60px;
+      width: 60px;
+      border-radius: 100%;
+      object-fit: cover;
+    }
+
+    &-right {
+      width: 100%;
+      margin-left: 10px;
+      display: flex;
+      justify-content: space-between;
+      a {
+        color: black;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      button {
+        align-self: flex-start;
+        padding: 5px 10px;
+        transition: 300ms;
+      }
+
+      .following {
+        background-color: $dblue;
+        color: white;
+      }
+      .follow {
+        border: 1px solid $dblue;
+        color: $dblue;
+      }
+    }
+  }
+}

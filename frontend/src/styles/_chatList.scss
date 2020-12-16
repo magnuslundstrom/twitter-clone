@@ -1,0 +1,44 @@
+.chatList-box {
+  display: flex;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: $rounded-sm;
+  &-image-wrapper {
+    height: 50px;
+    width: 60px;
+    margin-right: 10px;
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  &-left {
+    width: 100%;
+  }
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    &-members {
+      font-weight: $font-bold;
+      color: black;
+    }
+    &-date {
+      color: $dgray;
+    }
+  }
+
+  &-body {
+    color: $dgray;
+  }
+
+  &-seen {
+    font-size: 12px;
+    color: $dgray;
+  }
+}
+.chatList-box.selected {
+  background-color: $lgray;
+}

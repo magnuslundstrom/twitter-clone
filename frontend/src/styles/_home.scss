@@ -1,0 +1,61 @@
+@import './mixins.scss';
+#tweet-home {
+  form {
+    padding: 10px;
+
+    img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .input-image-wrapper {
+      display: flex;
+    }
+
+    .input-wrapper {
+      padding: 10px;
+      width: 100%;
+      border-bottom: 1px solid $lgray;
+
+      div {
+        font-size: 1.1rem;
+
+        padding: 0px 0px 20px 0px;
+      }
+
+      .reply-status {
+        color: $dblue;
+        font-weight: $font-bold;
+        font-size: 0.8rem;
+      }
+
+      .input-content {
+        position: relative;
+        span {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          pointer-events: none;
+        }
+
+        input {
+          width: 100%;
+          border: 0px;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  .form-bottom {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    button {
+      @include baseBtn();
+      padding: 10px 20px;
+    }
+  }
+  border-bottom: 10px solid $lgray;
+}

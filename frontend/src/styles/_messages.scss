@@ -1,0 +1,84 @@
+%padding {
+  padding: 10px;
+}
+
+.messages {
+  &-header {
+    border-bottom: 1px solid $lgray;
+    display: flex;
+    justify-content: space-between;
+    @extend %padding;
+    h1 {
+      font-size: 1.2rem;
+    }
+
+    i {
+      color: $dblue;
+      font-size: 1.1rem;
+    }
+  }
+
+  &-search {
+    width: 100%;
+    border-bottom: 1px solid $lgray;
+    @extend %padding;
+
+    div {
+      @extend %padding;
+      background-color: $lgray;
+      border-radius: $rounded;
+      display: flex;
+
+      i {
+        color: $dgray;
+        margin-right: 10px;
+      }
+
+      input {
+        width: 100%;
+        background-color: $lgray;
+      }
+    }
+  }
+
+  &-chat {
+    @extend %padding;
+  }
+}
+
+.message {
+  display: flex;
+  margin-bottom: 10px;
+
+  &-right-text {
+    background-color: $lgray;
+    padding: 10px;
+    border-radius: $rounded-sm;
+  }
+
+  img {
+    margin-right: 10px;
+    box-shadow: $shadow-lg;
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    object-fit: cover;
+  }
+
+  &-sent {
+    color: $dgray;
+    margin-top: 5px;
+  }
+}
+
+.message.self {
+  flex-direction: row-reverse;
+  align-self: flex-end;
+
+  .message-right-text {
+    background-color: $dblue;
+    color: white;
+    padding: 10px;
+    border-radius: $rounded-sm;
+  }
+}

@@ -1,0 +1,141 @@
+.profile {
+  &-header {
+    border-bottom: 1px solid $lgray;
+    display: flex;
+    align-items: center;
+
+    button {
+      margin-right: 30px;
+      margin-left: 20px;
+      color: $dblue;
+      font-size: 1.1rem;
+    }
+    div {
+      padding: 5px;
+
+      h1 {
+        font-size: 1.05rem;
+        font-weight: $font-bold;
+      }
+
+      p {
+        font-size: 0.8rem;
+        margin-top: 5px;
+        color: $dgray;
+      }
+    }
+  }
+  &-cover-image {
+    height: 200px;
+    width: 100%;
+    position: relative;
+    background-color: $lgray;
+    padding: 10px;
+    &-image {
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      border: 4px solid white;
+      top: calc(100% - 60px);
+      position: absolute;
+      object-fit: cover;
+    }
+  }
+
+  &-details {
+    position: relative;
+    padding: 10px;
+
+    &-lower {
+      display: flex;
+      justify-content: space-between;
+      &-left {
+        padding-top: 60px;
+
+        p {
+          color: $dgray;
+        }
+        &-calender {
+          margin-top: 10px;
+          margin-bottom: 10px;
+          i {
+            margin-right: 8px;
+          }
+        }
+        &-follow-count {
+          display: flex;
+          a {
+            display: block;
+            color: $dgray;
+
+            span {
+              color: black;
+            }
+
+            &:first-child {
+              margin-right: 12px;
+            }
+          }
+        }
+      }
+
+      &-actions {
+        display: flex;
+        button {
+          @include baseBtn(true);
+          padding: 10px 20px;
+          height: 40px;
+        }
+        a {
+          @include baseBtn(true);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  &-actions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    border-bottom: 1px solid $lgray;
+    text-align: center;
+
+    a {
+      color: $dgray;
+      padding: 10px;
+      display: block;
+      &:first-child {
+        color: $dblue;
+        border-bottom: 2px solid $dblue;
+      }
+    }
+  }
+}
+
+.upload-profile-image-form {
+  position: absolute;
+  bottom: -10px;
+  z-index: 50;
+  left: 52px;
+  text-align: center;
+
+  input {
+    display: none;
+  }
+  i {
+    color: white;
+    font-size: 20px;
+  }
+
+  label {
+    background-color: $dgray;
+    padding: 10px;
+    border-radius: 100%;
+  }
+}

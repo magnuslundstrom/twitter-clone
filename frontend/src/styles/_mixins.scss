@@ -1,0 +1,38 @@
+@mixin flex($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin flexCol($justify: center, $align: center) {
+  @include flex($justify, $align);
+  flex-direction: column;
+}
+
+@mixin baseBtn($invert: false) {
+  border: 1px solid $dblue;
+  @if $invert {
+    background-color: $white;
+    color: $dblue;
+    &:hover {
+      background-color: $dblue;
+      color: $white;
+    }
+  } @else {
+    background-color: $dblue;
+    color: $white;
+    &:hover {
+      background-color: $white;
+      color: $dblue;
+    }
+  }
+
+  &:disabled {
+    background-color: $oblue;
+
+    &:hover {
+      color: $white;
+      cursor: default;
+    }
+  }
+}

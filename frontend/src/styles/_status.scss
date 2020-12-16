@@ -1,0 +1,14 @@
+.status {
+  .mid-top {
+    display: flex;
+    align-items: center;
+
+    button {
+      margin-right: 30px;
+      font-size: 18px;
+      i {
+        color: $dblue;
+      }
+    }
+  }
+}
