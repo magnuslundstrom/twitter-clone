@@ -12,20 +12,20 @@ if (!$userId) {
 }
 validator($tweetBody, 'tweetBody', 0, 140);
 
-
 try {
     $db = new Database();
     $sql = 'INSERT INTO tweets (body, user_fk) VALUES (:body, :id)';
     $data = $db->prepare($sql)->bindAndExecute(['body', $tweetBody, 'id', $userId])->rowCount();
     $id = $db->getLastId();
 
-    if(!$data) {
+    if (!$data) {
         sendJSONError(400, 'something went wrong and tweet was not created');
     }
 
     header('Content-Type: application/json');
-    echo '{"id":"'. $id.'"}';
+    echo '{"id":"' . $id . '"}';
 
-} catch (Exception $ex) {
-    echo $ex;
+} catch (PDOException $ex) {
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 }

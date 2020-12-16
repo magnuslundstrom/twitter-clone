@@ -16,7 +16,11 @@ if (!$receiver_fk || !ctype_digit($receiver_fk)) {
     sendJSONError(400, 'you must provide a valid receiverId');
 }
 
-// LATER --- CHECK FOR IF USERS ACTUALLY EXISTS AND IF THE IDS ARE VALID
+/*
+Still needs some work
+If the conversation exists between the two users send back that Id
+Else create a new conv and insert the users
+ */
 
 try {
     $db = new Database();
@@ -59,7 +63,9 @@ try {
 
     sendJSON(200, 'conversation_id', $conversationId);
 
-} catch (Exception $ex) {
-    echo $ex;
+} catch (PDOException $ex) {
+
     $db->db->rollBack();
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 }

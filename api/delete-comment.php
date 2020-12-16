@@ -18,8 +18,7 @@ try {
 
     $sql = '
     DELETE FROM comments
-    WHERE comment_id = :commentId
-    ';
+    WHERE comment_id = :commentId';
 
     $db = new Database();
 
@@ -29,6 +28,7 @@ try {
         sendJSONError(400, 'no comment with the provided id');
     }
 
-} catch (Exception $ex) {
-    sendJSONError(400, 'something went wrong');
+} catch (PDOException $ex) {
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 }

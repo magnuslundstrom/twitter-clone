@@ -35,6 +35,7 @@ try {
         $data = $db->prepare($sql)->bindAndExecute($bindArr)->rowCount();
         sendJSON(201, 'success', 'unliked');
     }
-} catch (Exception $ex) {
-    echo $ex;
+} catch (PDOException $ex) {
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 };

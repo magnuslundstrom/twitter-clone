@@ -39,6 +39,6 @@ try {
         sendJSON(400, 'email', 'Email already exists');
     }
 
-    sendJSON(400, 'general', 'Error in sign up - Please contact admin' . __LINE__);
+    sendJSON(500, 'general', 'Error in sign up - Please contact admin' . __LINE__);
 
 }

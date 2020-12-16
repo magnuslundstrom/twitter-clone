@@ -29,6 +29,8 @@ if (!$lastName || strlen($lastName) < 2) {
 $oldEmail = $_SESSION['user']['email'];
 $dbObj = new Database();
 
+// First updates the properties sitting on the user entity and after updating/inserting/deleting user description
+
 try {
 
     $sql = "
@@ -106,11 +108,11 @@ try {
     $_SESSION['user']['email'] = $email;
     $_SESSION['user']['name'] = $firstName . ' ' . $lastName;
 
-} catch (Exception $ex) {
+} catch (PDOException $ex) {
     if ($ex->errorInfo[1] == 1062) {
         $dbObj->db->rollBack();
         sendJSON(400, 'email', 'Email already exists');
     }
-    http_response_code(400);
-    echo $ex;
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 };

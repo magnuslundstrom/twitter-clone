@@ -22,7 +22,7 @@ try {
     WHERE user_id NOT IN (SELECT follower_fk FROM follows WHERE followee_fk = :loggedInUser)
     AND user_id != :loggedInUser
     ORDER BY rand()
-    LIMIT 2
+    LIMIT 4
     ';
 
     $users = $db->prepare($sql)->bindAndExecute(['loggedInUser', $loggedInUser])->getAll();
@@ -34,6 +34,7 @@ try {
     header('Content-Type: application/json');
     echo json_encode($users);
 
-} catch (Exception $ex) {
-    echo $ex;
+} catch (PDOException $ex) {
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 }

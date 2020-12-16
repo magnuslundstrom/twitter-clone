@@ -42,6 +42,7 @@ try {
 
     sendJSON(200, 'tweets', $tweets);
 
-} catch (Exception $ex) {
-    echo $ex;
+} catch (PDOException $ex) {
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 }

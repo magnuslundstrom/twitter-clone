@@ -15,6 +15,7 @@ if (!$searchTerm) {
 validator($searchTerm, 'search term', 1, 100);
 
 try {
+    // Checking if the user has searched previously. If not we insert a new else we update the created_at
     $db = new Database();
     $sql = '
     SELECT
@@ -42,6 +43,7 @@ try {
         exit();
     }
 
-} catch (Exception $ex) {
-    sendJSON(400, 'error', $ex);
+} catch (PDOException $ex) {
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 }

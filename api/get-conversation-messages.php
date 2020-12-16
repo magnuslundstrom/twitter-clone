@@ -14,6 +14,11 @@ if (!$conversationId) {
     sendJSONError(400, 'you must provide conversation id');
 }
 
+/*
+The complexity arrises from beening able to access a conversation via either a reconized convId OR by passing in userId-userId
+So what we are looking for is either a conversation that has these two userIds or simply the convId that was passed.
+ */
+
 try {
     $conversationDetails = ['conversationId' => 0, 'type' => 0, 'messages' => [], 'users' => []];
     $db = new Database();
@@ -92,6 +97,7 @@ try {
 
     sendJSON(200, 'conversation', $conversationDetails);
 
-} catch (Exception $ex) {
-    echo $ex;
+} catch (PDOException $ex) {
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 }

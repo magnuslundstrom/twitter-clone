@@ -24,7 +24,6 @@ try {
     $user = $connection->bindAndExecute([':email', $email])->getOne();
     if ($user) {
         $verify = password_verify($password, $user['password']);
-
     }
 
     if (!$user || !$verify) {
@@ -37,6 +36,7 @@ try {
 
     sendJSON(200, 'user', $user);
 
-} catch (Exception $ex) {
-    echo $ex;
+} catch (PDOException $ex) {
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 }

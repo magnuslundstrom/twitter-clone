@@ -38,6 +38,7 @@ try {
     header('content-type: application/json');
     echo json_encode(['id' => $id]);
 
-} catch (Exception $ex) {
-    echo $ex;
+} catch (PDOException $ex) {
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 }

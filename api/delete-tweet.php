@@ -17,9 +17,8 @@ if (!$tweetId) {
 try {
 
     $sql = '
-DELETE FROM tweets
-WHERE tweet_id = :tweetId
-';
+    DELETE FROM tweets
+    WHERE tweet_id = :tweetId';
 
     $db = new Database();
 
@@ -29,6 +28,7 @@ WHERE tweet_id = :tweetId
         sendJSONError(400, 'no tweet with the provided id');
     }
 
-} catch (Exception $ex) {
-    sendJSONError(400, 'something went wrong');
+} catch (PDOException $ex) {
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 }

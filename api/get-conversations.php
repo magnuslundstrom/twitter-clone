@@ -29,6 +29,7 @@ try {
     WHERE uic.user_fk = :loggedInUser
     GROUP BY uic.conversation_fk
     ORDER BY m.created_at DESC
+    LIMIT 20
     ';
 
     $conversations = $db->prepare($sql)->bindAndExecute(['loggedInUser', $loggedInUser])->getAll();
@@ -62,6 +63,7 @@ try {
 
     header('Content-Type: application/json');
     echo json_encode($conversations);
-} catch (Exception $ex) {
-    echo $ex;
+} catch (PDOException $ex) {
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 }

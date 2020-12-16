@@ -35,7 +35,8 @@ try {
 
     sendJSON(200, 'message', 'successfully deleted');
 
-} catch (Exception $ex) {
+} catch (PDOException $ex) {
     $dbObj->db->rollBack();
-    sendJSONError(400, $ex);
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 }

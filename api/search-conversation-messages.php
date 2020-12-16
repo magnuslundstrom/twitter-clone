@@ -35,14 +35,14 @@ try {
     JOIN users ON sender_fk = user_id
     WHERE MATCH(body) Against(:term IN BOOLEAN MODE) AND conversation_fk = :convId
     ORDER BY messages.created_at DESC
-    LIMIT 20
-    ';
+    LIMIT 20';
     $messages = $db->prepare($sql)->bindAndExecute(['term', "$searchTerm*", 'convId', $conversationId])->getAll();
 
     http_response_code(200);
     header('Content-Type: application/json');
     echo JSON_ENCODE($messages);
 
-} catch (Exception $ex) {
-    echo $ex;
+} catch (PDOException $ex) {
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 }

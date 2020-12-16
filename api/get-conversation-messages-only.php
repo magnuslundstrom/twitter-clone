@@ -29,6 +29,7 @@ try {
     $messages = $db->prepare($sql)->bindAndExecute(['convId', $conversationId])->getAll();
     sendJSON(200, 'messages', $messages);
 
-} catch (Exception $ex) {
-    echo $ex;
+} catch (PDOException $ex) {
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 }

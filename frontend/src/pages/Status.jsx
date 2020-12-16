@@ -37,9 +37,7 @@ const Status = ({ status, fetchTweetA }) => {
           )) || <p>Loading tweet...</p>}
         </div>
       </div>
-      <div className="right">
-        <p>Hej</p>
-      </div>
+      <div className="right"></div>
     </div>
   );
 };

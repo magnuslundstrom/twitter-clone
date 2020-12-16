@@ -24,6 +24,7 @@ try {
     header('Content-type: application/json');
     echo json_encode($data);
 
-} catch (Exception $ex) {
-    sendJSON(400, 'error', $ex);
+} catch (PDOException $ex) {
+    sendJSON(500, 'general', 'Please contact admin' . __LINE__);
+
 }
