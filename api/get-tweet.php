@@ -54,7 +54,7 @@ try {
     user_id as commenter_id,
     comment_body as body,
     c.created_at as createdAt,
-    name,
+    CONCAT(first_name, " ", last_name) as name,
     follower_count as followerCount,
     following_count as followingCount
     FROM comments as c
